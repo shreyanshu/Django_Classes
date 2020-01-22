@@ -1,0 +1,25 @@
+.red-color{
+    color: red;
+    font-size: 10px;
+}
+h1, h2, h3{
+    font-family: "Lucida Bright",sans-serif;
+    color: burlywood;
+}
+p:first-letter{
+    font-size: 200%;
+}
+p{
+    color: #222222;
+    width: fit-content;
+}
+body{
+    /*background-image: url("../images/python.png");*/
+}
+a{
+    color: greenyellow;
+}
+#div_brown{
+    background-color: rosybrown;
+    width: fit-content;
+}

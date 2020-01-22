@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Edit Student{% endblock %}
+{% block content %}
+    <form action="{% url 'edit_student' id=student_id %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <input type="submit" value="submit" class="btn btn-success">
+    </form>
+{% endblock %}

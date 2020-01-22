@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="jumbotron">
+    <h1>LOGIN FORM</h1>
+    </div>
+    <div class="offset-4 col-sm-4">
+        <form action="{% url 'user_login' %}" method="post">
+        {% csrf_token %}
+        {{ login_form | crispy }}
+        <input type="submit" value="LOGIN" class="btn btn-dark">
+    </form>
+    </div>
+{% endblock %}

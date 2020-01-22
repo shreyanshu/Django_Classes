@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    index
+{% endblock %}
+{% block content %}
+    <h1>Test Title</h1>
+    <p id="div_brown">test text
+    <a href="{% url 'contact' %}">click</a>
+    </p>
+    <h1 class="red-color">This is a contact page</h1>
+    {% if is_login %}
+        user is logged in
+    {% else %}
+        user is not logged in
+    {% endif %}
+    {{ is_login }}
+    <table border="1">
+    {% for book in list_books %}
+        <tr>
+            <td>
+                {{ book }}
+            </td>
+        </tr>
+    {% endfor %}
+    </table>
+{% endblock %}

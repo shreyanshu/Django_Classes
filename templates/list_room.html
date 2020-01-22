@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}List Rooms{% endblock %}
+{% block content %}
+    <table class="table">
+    <thead>
+        <tr>
+            <th>Room Number</th>
+            <th>Floor Number</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for instance in object_list %}
+            <tr>
+            <td>{{ instance.room_no }}</td>
+            <td>{{ instance.floor_no }}</td>
+            <td>{{ instance.student_set.count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Add Room{% endblock %}
+{% block content %}
+    <div class="col-sm-4">
+        <form action="{% url 'edit_room' id=object.id %}" method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" value="submit" class="btn btn-success">
+        </form>
+    </div>
+{% endblock %}

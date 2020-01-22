@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontawesome/css/all.css' %}">
+    <title>
+        {% block title %}
+        {% endblock %}
+    </title>
+</head>
+<body>
+{% if user.is_authenticated %}
+    <ul class="nav justify-content-end">
+        <li class="nav-item">
+        <a class="nav-link active" href="{% url 'list_students' %}">Student</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{% url 'user_logout' %}" tabindex="-1">Logout</a>
+        </li>
+    </ul>
+{% endif %}
+    {% if messages %}
+        {% for message in messages %}
+            {% if message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+                <div class="alert alert-success">
+                    {{ message }}
+                </div>
+            {% elif message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+                <div class="alert alert-danger">
+                    <i class="fa fa-exclamation-triangle"></i> {{ message }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+        {% block content %}
+        {% endblock %}
+</body>
+</html>

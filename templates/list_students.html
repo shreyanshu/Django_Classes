@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}List students{% endblock %}
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'add_student' %}">Add new</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Roll</th>
+            <th>Section</th>
+            <th>Room</th>
+            <th>Photo</th>
+            <th>Delete</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>{{ student.roll }}</td>
+                <td>{{ student.sec }}</td>
+                <td>{{ student.room.room_no }}</td>
+                <td><img src="{{ student.photo.url }}" height="100px"></td>
+                <td><a class="btn btn-danger" href="{% url 'delete_student' id=student.id %}">Delete</a></td>
+                <td><a class="btn btn-warning" href="{% url 'edit_student' id=student.id %}">Edit</a></td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
